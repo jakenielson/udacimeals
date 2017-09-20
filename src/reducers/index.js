@@ -1,7 +1,7 @@
 import {
   ADD_RECIPE,
   REMOVE_FROM_CALENDER
-} from '../actions'
+} from '../actions';
 
 const initialCalenderState = {
   sunday: {
@@ -42,7 +42,7 @@ const initialCalenderState = {
 }
 
 function calender (state = initialCalenderState, action) {
-  const { day, recipe, meal } = action
+  const { day, recipe, meal } = action;
 
   switch (action.type) {
     // When the action type is ADD_RECIPE...
@@ -57,7 +57,7 @@ function calender (state = initialCalenderState, action) {
           // with the recipe specified in the arguments.
           [meal]: recipe.label
         }
-      }
+      };
     case REMOVE_FROM_CALENDER :
       return {
         ...state,
@@ -65,9 +65,9 @@ function calender (state = initialCalenderState, action) {
           ...state[day],
           [meal]: null
         }
-      }
+      };
     default :
-      return state
+      return state;
   }
 }
 
