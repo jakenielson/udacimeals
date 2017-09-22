@@ -13,7 +13,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps (calendar) {
+function mapStateToProps ({ calendar, food }) {
   // Create an array of days
   const dayOrder = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
@@ -25,7 +25,7 @@ function mapStateToProps (calendar) {
       // Use reduce to set meals to an object containing breakfast, lunch, and dinner
       meals: Object.keys(calendar[day]).reduce((meals, meal) => {
         meals[meal] = calendar[day][meal]
-          ? calendar[day][meal]
+          ? food[calendar[day][meal]]
           : null;
 
         return meals;
